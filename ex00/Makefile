@@ -6,7 +6,9 @@ SRCS = $(wildcard *.cpp)
 
 OBJ_DIR = ../obj
 
-OBJS = $(addprefix $(OBJ_DIR)/ex00/, $(SRCS:.cpp=.o))
+OBJS_PATH = ../obj/ex00
+
+OBJS = $(addprefix $(OBJS_PATH)/, $(SRCS:.cpp=.o))
 
 RM = rm -rf
 
@@ -17,12 +19,12 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-$(OBJ_DIR)/ex00/%.o: %.cpp
+$(OBJS_PATH)/%.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJ_DIR)/ex00
+	$(RM) $(OBJS_PATH)
 
 fclean: clean
 	$(RM) $(OBJ_DIR) $(NAME)
