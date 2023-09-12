@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra #-Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = $(wildcard *.cpp)
 
@@ -25,7 +25,7 @@ clean:
 	$(RM) $(OBJ_DIR)/ex00
 
 fclean: clean
-	$(RM) OBJ_DIR $(NAME)
+	$(RM) $(OBJ_DIR) $(NAME)
 
 re: fclean all
 
